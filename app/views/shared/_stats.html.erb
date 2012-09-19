@@ -1,15 +1,9 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <a href="<%= following_post_path(@user) %>">
-    <strong id="following" class="stat">
-      <%= @user.followed_users.count %>
-    </strong>
-    following
+  <td><%= link_to 'You are following these posts ', following_posts_users_path(@user) %></td>
+
+
+
   </a>
-  <a href="<%= followers_user_path(@user) %>">
-    <strong id="followers" class="stat">
-      <%= @user.followers.count %>
-    </strong>
-    followers
-  </a>
+
 </div>

@@ -5,12 +5,29 @@ Third::Application.routes.draw do
 
     end
   end
-  devise_for :users
-  match '/users/:id/following', :to => 'users#following'   #or your route
-  match '/users/:id/followers', :to => 'users#followers'   #or your route
+
+  #devise_scope :user do  match '/users/following_posts', :to => 'users#following_posts'   #or your route
+  #end
+
+ devise_for :users   ,:path => 'accounts'
+ #devise_for :users, :controllers=>{:users=>"users"}# do
+    #any additional user session routes would be defined here
+
+   #collection do
+   #  get :following_posts
+   #  end
+ # end
+ # devise_for :users
+
+ # match '/users/:id/followers', :to => 'users#followers'   #or your route
   resources :microposts
 
- #resource  :users   do
+ resources  :users   do
+  collection do
+   get  :following_posts
+ end
+end
+  #do
 #  member do
   #  get :following, :followers
  # end

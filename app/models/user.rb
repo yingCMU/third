@@ -44,4 +44,7 @@ class User < ActiveRecord::Base
   def unfollow!(any_post)
     relationships.find_by_post_id(any_post.id).destroy
   end
+
+
+
 end

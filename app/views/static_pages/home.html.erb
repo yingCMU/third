@@ -15,11 +15,49 @@
 
 </div>
 <div class="span8">
+<% if user_signed_in? %>
+    .
+    .
+    .
+    <section>
+      <%= render 'shared/user_info' %>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+    <section>
+        <% if !current_user.posts.count==0 %>
+      <%= render 'shared/post_form' %>
+          <% end %>
+    </section>
+    .
+    .
+    .
+<% else %>
+      <div class="center hero-unit">
+        <h1>Welcome to the Sample App</h1>
+
+        <h2>
+          This is the home page for the
+          <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
+          sample application.
+        </h2>
+
+        <%= link_to "Sign up now!", signup_path,
+                    class: "btn btn-large btn-primary" %>
+      </div>
+
+      <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+<% end %>
+</div>
+<div class="span8">
 <% if user_signed_in? && @current_user.posts.any? %>
-    <h3> posts (<%= @current_user.posts.count %>)</h3>
-    <ol class="posts">
-      <%= render @posts %>
-    </ol>
-    <%= will_paginate @posts %>
+    <h3> posts Number (<%= @current_user.posts.count %>)</h3>
+     content:  <%= @current_user.posts %>
+
+      <ol>
+        <%= render @posts %>
+      </ol>
+      <%= will_paginate @posts %>
 <% end %>
 </div>

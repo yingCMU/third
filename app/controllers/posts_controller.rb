@@ -15,4 +15,10 @@ class PostsController < ApplicationController
   end
   def destroy
   end
+  def new
+    @post = current_user.posts.build if user_signed_in?
+
+
+  end
+
 end
