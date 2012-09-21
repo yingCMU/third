@@ -60,11 +60,18 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+
+
   end
 
   # PUT /users/1
   # PUT /users/1.json
 
+
+  def following
+     @title = "following posts"
+   # @
+  end
 
   def update
     @user = User.find(params[:id])

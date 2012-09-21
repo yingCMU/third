@@ -5,3 +5,5 @@
                                     <%= render @posts %>
                                   </ol>
                                   <%= will_paginate @posts %>
+
+                                  <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>

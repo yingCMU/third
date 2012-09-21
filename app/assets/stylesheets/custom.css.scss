@@ -1,4 +1,25 @@
 @import "bootstrap";
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 2.0em;
+  color: #ff0000;
+
+  letter-spacing: -1px;
+  padding-top: 12px;
+  font-weight: bold;
+  line-height: 1;
+  font-family:Copperplate / Copperplate Gothic Light, sans-serif;
+  font-style: italic;
+
+}
+
+#logo:hover {
+  color: #ffd700;
+  text-decoration: Background;
+}
+
 .users {
   list-style: none;
   margin: 0;
@@ -10,4 +31,25 @@
       border-bottom: 1px solid $grayLighter;
     }
   }
+}
+body {
+  padding-top: 60px;
+}
+
+th {
+  border-bottom: navy solid thin;
+  border-top: navy solid thin;
+  border-left: none;
+  border-right: none;
+  font-size: smaller;
+  layout-grid-char: 10;
+}
+.li {border-top: outset;}
+.field{
+  border-top: outset;
+
+  border-left: #7fff00;
+  border-right: none;
+  font-size: smaller;
+  layout-grid-char: 10;
 }

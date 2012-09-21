@@ -9,16 +9,34 @@
 </head>
 
 <body>
-<div class="center hero-unit">
-  <h1>Welcome to the TartanParty</h1>
+
+
+<div class="container">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="/">Home</a>
+      <ul class="nav">
+        <li ><%= link_to "All Posts", posts_path  %> </li>
+        <li>   <%= link_to "My Profile", current_user %>      </li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+      </ul>
+    </div>
+
+
   </div>
+</div>
 <%= render 'layouts/header' %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
-
+<div class="container">
 
 <%= yield %>
+    </div>
 
+<div>
+
+</div>
 </body>
 </html>

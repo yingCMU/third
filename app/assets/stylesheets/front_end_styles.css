@@ -1,7 +1,27 @@
 /* not pretty, but you'll know it when you see it*/
 body {
-    background-color: #1100aa
+    background-color:#ffffff;
+   /* background-image:url('BG1.jpg');   */
+       color:#ffffff ;
+    background-size: 1366px 768px;
+
 }
-p, a, h1, h2, h3, h4 {
-    color: #ff0000;
+ a, h1, h2, h3, h4 {
+    font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;padding:0;margin:0;color:#4b5c66;
 }
+
+
+button{
+    color: #000000;
+}
+btn-link{
+    background-color: #ff0000;
+}
+ul {list-style-type:circle;}
+ul li
+   {
+                  ;
+       background-repeat:no-repeat;
+       background-position:0px 5px;
+       padding-left:14px;
+   }

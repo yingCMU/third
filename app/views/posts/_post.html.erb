@@ -1,9 +1,17 @@
 <li>
-  <span>title: <%=post.title %></span>
-  <span>place: <%=post.place %></span>
-  <span>time: <%=post.time %></span>
-  <span class="content"><%=post.details %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(post.created_at) %> ago.
-  </span>
+  <span class="label label-info">title: </span>
+  <span>  <%=post.title %> </span>
+  <span class="label label-info">place:</span>
+  <%=post.place %>
+  <span class="label label-info">time: </span>
+  <%=post.time %>
+
+  <span class="label label-inverse">        Posted      </span>
+    <%= time_ago_in_words(post.created_at) %> ago.
+  <span class="label label-info"> follower Number : </span>
+  <%=post.followers.count%>
+
+  <button class="btn btn-mini" type="button">
+  <td><%= link_to 'Show Details', post %></td>     </button>
+
 </li>

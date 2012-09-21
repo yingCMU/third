@@ -1,4 +1,4 @@
->haha<%= form_for(@post) do |f| %>
+<div class="container"> <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -16,8 +16,9 @@
     <%= f.datetime_select :time %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br />
+    <%= f.label :creating_user_ID  %><br />
     <%= current_user.id %>
+    <%= "email:"+current_user.email %>
   </div>
   <div class="field">
     <%= f.label :place %><br />
@@ -35,3 +36,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>

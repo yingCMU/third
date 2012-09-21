@@ -1,3 +1,14 @@
+<ul class="breadcrumb">
+  <li><a href="/">Home</a> <span class="divider">/</span></li>
+
+  <li class="active">My Profile |  </li>
+  <li> <%= link_to 'Edit My Profile | ', edit_user_path(@user) %>     </li>
+  <li>  <%= link_to 'See All Users | ', users_path %>           </li>
+</ul>
+<div class="span8">
+
+
+</div >
 <% provide(:title, @user.email) %>
 <title><%= yield(:title) %></title>
 
@@ -5,35 +16,30 @@
 <p id="notice"><%= notice %></p>
 
 
-<p><b>h1 </b>
+<p>
   <%= @current_user %> </p>
 <p>
-  <b>Email:</b>
+  <b>My Email:</b>
   <%= @user.email %>
 </p>
 
-<p>
-  <b>Password:</b>
-  <%= @user.password %>
-</p>
 
 <div class="span8">
   <% if @user.posts.any? %>
-      <h3></h3>posts (<%= @user.posts.count %>)</h3>
+      <h3>All my posts (<%= @user.posts.count %>)</h3>
       <ol class="posts">
         <%= render @posts %>
       </ol>
       <%= will_paginate @posts %>
   <% end %>
 </div>
-!!!!!!!!!!!!!!
+
 
 
 <% if signed_in? %>
-    <li><%= link_to "Users", '#' %></li>
+
     <% else %>
     <li><%= link_to "sign in", '#' %></li>
     <% end %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+

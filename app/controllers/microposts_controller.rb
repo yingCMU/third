@@ -6,6 +6,7 @@ class MicropostsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.xml  { render xml: @microposts }# index.html.erb
       format.json { render json: @microposts }
     end
   end
@@ -17,6 +18,7 @@ class MicropostsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+      format.xml { render xml: @micropost }
       format.json { render json: @micropost }
     end
   end
@@ -28,6 +30,7 @@ class MicropostsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
+      format.xml { render xml: @micropost }
       format.json { render json: @micropost }
     end
   end
@@ -45,10 +48,12 @@ class MicropostsController < ApplicationController
     respond_to do |format|
       if @micropost.save
         format.html { redirect_to @micropost, notice: 'Micropost was successfully created.' }
+        format.xml { render xml: @micropost, status: :created, location: @micropost }
         format.json { render json: @micropost, status: :created, location: @micropost }
       else
         format.html { render action: "new" }
         format.json { render json: @micropost.errors, status: :unprocessable_entity }
+        format.xml { render xml: @micropost.errors, status: :unprocessable_entity }
       end
     end
   end

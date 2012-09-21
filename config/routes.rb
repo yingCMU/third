@@ -23,10 +23,11 @@ Third::Application.routes.draw do
   resources :microposts
 
  resources  :users   do
-  collection do
+   member do
    get  :following_posts
  end
-end
+ end
+  resources :relationships, only: [:create, :destroy]
   #do
 #  member do
   #  get :following, :followers

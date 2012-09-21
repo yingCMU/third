@@ -1,12 +1,44 @@
-<header class="navbar navbar-fixed-top">
-  <div id="user_nav" class="navbar-inner">
-    <% if user_signed_in? %>
-        <p class="text-warning"> Signed in as <%= current_user.email %>. Not you?
-        <i class="btn"> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>  </i>            </p>
-    <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-    <% end %>
+<header class="navbar navbar-fixed-top"s>
+
+  <div class="container">
+    <div><h1 class="pull-left" id="logo"> <a href="/">TartanParty</a> </h1>     </div>
+    <div class="content">
+      <div class="container">
+        <div> <p class="form-legend alert alert-info">
+          <strong>TantanParty</strong> is for students to post party info and join the ones they like.
+        </p>     </div>
+      </div>
+    </div>
+  <div class="inner">
+
+
+    <nav>
+
+      <ul class="nav pull-right">
+
+
+
+        <li><% if user_signed_in? %>
+              <p class="text-warning"> Signed in as <%= current_user.email %>. Not you?
+
+                <i class="btn"> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>  </i>            </p>     </li>
+
+
+              <li><a href="#">Help</a></li>
+          <% else %>
+              <li>  <%= link_to "Sign up", new_user_registration_path %> </li>
+              <li> <%= link_to "sign in", new_user_session_path %>     </li>
+          <% end %>
+          </ul>
+    </nav>
+    </div>
+
+
+
+
   </div>
 
 
+
 </header>
+

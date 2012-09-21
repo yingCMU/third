@@ -1,13 +1,24 @@
-<p id="notice"><%= notice %></p>
+<ul class="breadcrumb">
+  <li><a href="/">Home</a> <span class="divider">/</span></li>
 
+  <li class="active">Show Post</li>
+
+
+</ul>
+
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Title:</b>
+  <%= @post.title %>
+</p>
 <p>
   <b>Time:</b>
   <%= @post.time %>
 </p>
 
 <p>
-  <b>User:</b>
-  <%= @post.user_id %>
+  <b>Publish User:</b>
+  <%= User.find(@post.user_id).email %>
 </p>
 
 <p>
@@ -16,15 +27,27 @@
 </p>
 
 <p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
+  <b>      Posted   :</b>
+<%= time_ago_in_words(@post.created_at) %> ago.
+  </p>
 
 <p>
   <b>Details:</b>
   <%= @post.details %>
 </p>
 
+<p>
+  <b>Participators:</b>
+  <%= @post.followers.count %>
+</p>
+<div class="span8">
+  <%if signed_in? %>
+  <%= render 'follow_form' %>
+<% else %>
+      Want to follow? You need to <%= link_to "sign in", new_user_session_path %>
+
+  <% end %>
+</div>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back to post list', posts_path %>

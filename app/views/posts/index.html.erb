@@ -1,9 +1,19 @@
-<h1>Listing posts</h1>
+       <h1></h1>
+<ul class="breadcrumb">
+  <li><a href="/">Home</a> <span class="divider">/</span></li>
 
-<table>
+  <li class="active">All Posts</li>
+
+    <li> <%= link_to '/  New Post   ',  new_post_path %>     </li>
+
+  </ul>
+
+
+<table class="table">
   <tr>
-    <th>Time</th>
-    <th>User</th>
+    <div>
+    <th > <i class="icon-time"></i>Time</th>  </div>
+    <th>Post User</th>
     <th>Place</th>
     <th>Title</th>
     <th>Details</th>
@@ -15,17 +25,16 @@
 <% @posts.each do |post| %>
   <tr>
     <td><%= post.time %></td>
-    <td><%= post.user_id %></td>
+    <td><%= User.find(post.user_id).email %></td>
     <td><%= post.place %></td>
     <td><%= post.title %></td>
     <td><%= post.details %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><i class="icon-file"></i> <%= link_to 'Show', post %></td>
+    <td><i class="icon-edit"></i><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><i class="icon-trash"></i><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Post', new_post_path %>

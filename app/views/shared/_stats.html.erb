@@ -1,8 +1,12 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <td><%= link_to 'You are following these posts ', following_posts_users_path(@user) %></td>
+  <h3><td> You are following (<%= current_user.following_posts.count %>) posts  </td>          </h3>
 
-
+   <%  @posts=current_user.following_posts.paginate(page: params[:page])%>
+  <ol>
+    <%= render @posts %>
+  </ol>
+  <%= will_paginate @posts %>
 
   </a>
 
