@@ -7,7 +7,7 @@ gem 'rspec-rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'bcrypt-ruby'
-gem 'sqlite3'
+#gem 'sqlite3'
 gem 'will_paginate'
 gem 'faker'
 gem 'devise'
@@ -29,6 +29,9 @@ end
 
 # Gems used only for assets and not required
 # in production environments by default.
+group :production, :staging do
+  gem "pg"
+end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
