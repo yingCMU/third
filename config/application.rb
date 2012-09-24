@@ -39,7 +39,9 @@ module Third
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-
+    config.generators do |g|
+      g.test_framework      :rspec
+    end
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
 

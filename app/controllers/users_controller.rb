@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+ # before_filter :current_user( params[:id] )
   def index
     @users = User.all
 
@@ -100,6 +101,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def               following_posts
+    @posts = current_user.following_posts
+
+   render '/posts/index'
+  end
 
 
 end

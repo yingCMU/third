@@ -22,18 +22,18 @@
   </div>
   <div class="field">
     <%= f.label :place %><br />
-    <%= f.text_field :place %>
+    <%= f.text_field :place, placeholder: "Compose new micropost..." %>
   </div>
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, placeholder: "Compose new micropost..." %>
   </div>
   <div class="field">
     <%= f.label :details %><br />
-    <%= f.text_field :details %>
+    <%= f.text_field :details, placeholder: "Compose new micropost..." %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <button  class="btn btn-large btn-primary" type="button">
+    <%= f.submit "Create Post", class: "btn btn-large btn-primary",id:"Create Post"  %>
+  </button >
 <% end %>
 </div>

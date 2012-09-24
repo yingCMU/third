@@ -13,5 +13,10 @@
 
   <button class="btn btn-mini" type="button">
   <td><%= link_to 'Show Details', post %></td>     </button>
-
+  <a href="<%= followers_post_path(post) %>">
+    <strong id="followers" class="stat">
+      <%= post.followers.count %>
+    </strong>
+    followers
+  </a>
 </li>

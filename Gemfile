@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
-
+gem 'spork'
 gem 'rails', '3.2.8'
 gem 'bootstrap-sass'
+gem 'rspec-rails'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'bcrypt-ruby'
@@ -9,11 +11,17 @@ gem 'sqlite3'
 gem 'will_paginate'
 gem 'faker'
 gem 'devise'
+gem "capybara"
+gem 'factory_girl_rails'
 group :development, :test do
+  gem 'cucumber-rails'
 #  gem 'sqlite3'
+  gem "webrat"
+  gem 'autotest'
+  gem 'autotest-standalone'
   gem 'rspec'
   gem 'rspec-core'
-  gem 'rspec-rails', '2.11.0'
+  gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
 end

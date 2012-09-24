@@ -1,0 +1,53 @@
+
+
+<div class="span8">
+  <% if user_signed_in? %>
+  <button class=" btn btn-primary ">
+
+    <%= link_to "New Post",   new_post_path   %>  </button>
+      <%end%>
+
+<% if user_signed_in? %>
+
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+    <section>
+
+      <a href="<%= following_posts_user_path(@user) %>">
+        <strong id="following" class="stat">
+          <%= @user.following_posts.count %>
+        </strong>
+        following
+      </a>
+
+    </section>
+
+<% else %>
+      <div  >  <%= link_to "sign in", new_user_session_path,  class: "btn btn-large btn-primary" %>     </div  >
+      <div class="center hero-unit">
+
+        <h3 class="" >If you have not registered!</h3>
+
+
+
+        <%= link_to "Sign up now!", new_user_registration_path  , class: "btn btn-large btn-primary" %>
+
+      </div>
+      <%= link_to "Home", 'http://localhost:3000' %>
+
+<% end %>
+</div>
+<div class="span8">
+  <tr>
+  </tr>
+<% if user_signed_in? && current_user.posts.any? %>
+    <h3>Your posts (<%= current_user.posts.count %> in total)</h3>
+     content:  <% @posts= current_user.posts.paginate(page: params[:page])     if !current_user.nil? %>
+
+      <ol>
+        <%= render @posts %>
+      </ol>
+      <%= will_paginate @posts %>
+<% end %>
+</div>

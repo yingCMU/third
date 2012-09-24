@@ -36,9 +36,21 @@
   <%= @post.details %>
 </p>
 
+
 <p>
-  <b>Participators:</b>
-  <%= @post.followers.count %>
+  <b>Participators (<%= @post.followers.count %>):</b>
+  <%  @users= @post.followers %>
+  <% @users.each do |user| %>
+      <tr>
+
+        <td><%= User.find(user.id).email %></td>
+        <% if  user_signed_in? %>
+        <td><i class="icon-file"></i> <%= link_to 'Show', user %></td>
+        <td><i class="icon-edit"></i><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><i class="icon-trash"></i><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+      </tr>
+  <% end %>
 </p>
 <div class="span8">
   <%if signed_in? %>

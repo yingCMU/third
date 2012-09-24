@@ -1,11 +1,12 @@
 Third::Application.routes.draw do
+
   resources :posts  do
-    collection do
+    member do
       get :followers
 
     end
   end
-
+  #match            '/reverse'  , :to => 'posts#reverse'
   #devise_scope :user do  match '/users/following_posts', :to => 'users#following_posts'   #or your route
   #end
 
@@ -39,9 +40,9 @@ Third::Application.routes.draw do
    # end
  #end
 
-  get "static_pages/home"
+  get "home_pages/home"
 
-  get "static_pages/help"
+  get "home_pages/help"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -92,7 +93,7 @@ Third::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'static_pages#home'
+   root :to => 'home_pages#home'
 
   # See how all your routes lay out with "rake routes"
 
