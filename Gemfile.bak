@@ -7,15 +7,16 @@ gem 'rspec-rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'bcrypt-ruby'
-gem 'sqlite3'
+#gem 'sqlite3'
 gem 'will_paginate'
 gem 'faker'
 gem 'devise'
 gem "capybara"
 gem 'factory_girl_rails'
+gem 'sqlite3'
 group :development, :test do
   gem 'cucumber-rails'
-#  gem 'sqlite3'
+  gem 'sqlite3'
   gem "webrat"
   gem 'autotest'
   gem 'autotest-standalone'

@@ -13,7 +13,7 @@ gem 'faker'
 gem 'devise'
 gem "capybara"
 gem 'factory_girl_rails'
-gem 'sqlite3'
+#gem 'sqlite3'
 group :development, :test do
   gem 'cucumber-rails'
   gem 'sqlite3'
