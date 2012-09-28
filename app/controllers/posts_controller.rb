@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     respond_to do |format|
     format.html
     format.xml  { render xml: @posts }
+    format.js
       end
   end
   def create
@@ -27,14 +28,14 @@ class PostsController < ApplicationController
       #format.html { render action: "edit" }
     else
       render 'home_pages/home'
-      format.xml { render xml: @post.errors, status: :unprocessable_entity }
+      #format.xml { render xml: @post.errors, status: :unprocessable_entity }
     end
   end
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
     flash[:success] = "post deleted successfully!"
-   # format.js #added
+   format.js #added
    # render 'posts/index'
    # redirect_to root_url
     render 'home_pages/home'

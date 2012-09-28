@@ -1,3 +1,4 @@
+#????????
 require 'spec_helper'
 
 describe "post pages" do
@@ -35,27 +36,15 @@ describe "post pages" do
       it "should create a user and a new post" do
         expect { click_button submit }.to change(User, :count).by(1)
         #单独拿出一个decribe的话，跳不到posts/new page
-        visit '/posts/new'
+        visit  new_post_path
+        fill_in "Place",          :with => "SomeTitle"
+         fill_in "Title", :with =>"title"
         expect { click_button "Create Post" }.to change{Post.count}.by(1)
       end
     end
 
 
   end
-  # it "Create a new post" do
-     # visit '/posts/new'
-
-     # fill_in "place",          :with => "SomeTitle"
-
-    #  fill_in "Description",    :with => "SomeDescription"
-
-    #  select "books",            :from => "listing_category_id"
-
-      #click_button             "Create Post"
-
-   # Eend.should change(Post, :count).by(1)
-   #   expect { click_button "Create Post" }.to change{Post.count}.by(1)
-
 
       end
 

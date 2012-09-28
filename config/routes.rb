@@ -1,5 +1,7 @@
 Third::Application.routes.draw do
 
+  resources :comments
+
   resources :posts  do
     member do
       get :followers

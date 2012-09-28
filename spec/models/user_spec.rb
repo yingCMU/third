@@ -13,7 +13,7 @@ describe User do
     before { @user.email = " " }
     it { should_not be_valid }
 
-        it { should respond_to(:database_authenticatable) }
+      #  it { should respond_to(:database_authenticatable) }
     it { should respond_to(:posts) }
   end
 

@@ -1,4 +1,8 @@
 #???
+
+
+
+
 require 'spec_helper'
 
 
@@ -9,11 +13,12 @@ describe PostsController ,:type => :controller     do
   fill_in "Password",     with: "foobar"
   fill_in "Password confirmation", with: "foobar"
   click_button "Sign up" }
+
   describe "GET 'new'" do
 
     it "should be successful" do
     #  expect { click_button "Sign up" }.to change(User, :count).by(1)
-      get :new
+      visit   new_post_path
       response.should be_success
     end
 
@@ -25,11 +30,15 @@ describe PostsController ,:type => :controller     do
 
 
   describe "POST 'create'" do
-
+    login_user
     describe "failure" do
 
       before(:each) do
-        @attr = { :place => "",  :details => "" }
+        @attr = { :place => "",  :details => "", :title=>"", :user_id=>11 }
+      end
+      it "should have a current_user" do
+        # note the fact that I removed the "validate_session" parameter if this was a scaffold-generated controller
+        subject.current_user.should_not be_nil
       end
 
       it "should not create a listing" do
@@ -40,22 +49,24 @@ describe PostsController ,:type => :controller     do
 
       it "should render the home page" do
         post :create, :post => @attr
-        response.should redirect_to(root_path)
+       # response.should redirect_to(root_path)
      #   response.should render_template('/')
+        response.should be_success
       end
     end
 
     describe "success" do
 
       before(:each) do
-        @attr = { :title => "Lorem ipsum",
-                  :details => "Lorem ipsum",
+        @attr = { :place => "",:title => "Lorem ipsum",
+                  :details => "Lorem ipsum",          :user_id=>11
                   }
       end
 
       it "should create a listing" do
         lambda do
           post :create, :post => @attr
+          #visit
         end.should change(Post, :count).by(1)
       end
 

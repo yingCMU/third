@@ -12,6 +12,13 @@ FactoryGirl.define do
     title    "1111@126.com"
     place "111111"
    details "ddd"
-    id "11"
+    user_id "11"
   end
+
+
+ # factory :comment do
+   #  name     "Michael Hartl"
+  # body    "comment body"
+
+ # end
 end

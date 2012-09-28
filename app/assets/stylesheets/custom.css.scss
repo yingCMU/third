@@ -33,8 +33,8 @@
   }
 }
 body {
-  padding-top: 60px;
-}
+   padding-top: 60px;
+ }
 
 th {
   border-bottom: navy solid thin;
@@ -52,4 +52,30 @@ th {
   border-right: none;
   font-size: smaller;
   layout-grid-char: 10;
+}
+
+body
+  {
+  font-family: tahoma, sans-serif;
+  font-size: 18px;
+  background-color: #4B7399;
+  width: 100%;
+  color: #ffffff;
+  margin: 0;
+ // text-align: center;
+}
+
+content
+  {
+  width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.post
+  {
+  padding: 5px 20px 5px 20px;
+  background-color: #ffffff;
+  margin: 20px 0 20px 0;
+  color: #000000;
 }

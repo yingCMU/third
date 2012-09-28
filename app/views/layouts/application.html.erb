@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>
   <title>Ying Li's App|TartanParty</title>
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
+  <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" %>
+  <%= javascript_include_tag "jquery-rails.js" %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -14,14 +18,15 @@
 <div class="container">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+
   <div class="navbar">
     <div class="navbar-inner">
       <a class="brand" href="/">Home</a>
       <ul class="nav">
         <li ><%= link_to "All Posts", posts_path  %> </li>
         <li>   <%= link_to "My Profile", current_user %>      </li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+        <li><%= link_to "Make Comments", comments_path  %> </li>
+
       </ul>
     </div>
 
@@ -31,7 +36,7 @@
 <%= render 'layouts/header' %>
 
 <div class="container">
-
+  <div id="flash_notice" style="display:none"></div>
 <%= yield %>
     </div>
 
