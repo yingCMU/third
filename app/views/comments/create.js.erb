@@ -1,24 +1,14 @@
-$("#flash_notice").hide(300);
-/*Update the html of the div flash_notice with the new one*/
+/* Insert a notice between the last comment and the comment form */
 $("#flash_notice").html("<%= escape_javascript(flash[:notice])%>");
 
-/*Show the flash_notice div*/
-$("#flash_notice").show(300);
-/* Insert a notice between the last comment and the comment form */
-$("#comment-notice").html('<div class="flash notice"><%= escape_javascript(@comment.content) %></div>');
-
 /* Replace the count of comments */
-$("#comments_count").html("<%= pluralize(Comment.count, 'Comments') %>");
+$("#comments_count").html("<%= pluralize(Comment.count, 'Comment') %>");
 
 /* Add the new comment to the bottom of the comments list */
-$("#comments").append("<%= escape_javascript(render(@comments)) %>");
+$("#comments").append("<%= escape_javascript(render(@comment)) %>");
 
 /* Highlight the new comment */
 $("#comment_<%= @comment.id %>").effect("highlight", {}, 3000);
 
 /* Reset the comment form */
 $("#new_comment")[0].reset();
-/*Clear the entire form*/
-$(":input:not(input[type=submit])").val("");
-
-/*Replace the html of the div post_lists with the updated new one*/

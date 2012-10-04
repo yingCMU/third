@@ -3,6 +3,6 @@
 $('#comment_<%= @comment.id %>').fadeOut();
 $("#flash_notice").html("<%= escape_javascript(flash[:notice])%>");
 $("#flash_notice").show(300);
-$("#flash_notice").hide(300);
+
 /* Replace the count of comments */
 $("#comments_count").html("<%= pluralize(Comment.count, 'Comments') %>");

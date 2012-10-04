@@ -30,7 +30,7 @@
     <td><%= post.title %></td>
     <td><%= post.details %></td>
     <td><i class="icon-file"></i> <%= link_to 'Show', post %></td>
-    <td><i class="icon-edit"></i><%= link_to 'Edit', edit_post_path(post),remote: true %></td>
+    <td><i class="icon-edit"></i><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><i class="icon-trash"></i><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
   </tr>

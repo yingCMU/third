@@ -57,12 +57,12 @@ module Third
     config.active_record.whitelist_attributes = true
 
     # Enable the asset pipeline
-    config.assets.enabled = true
-<<<<<<< HEAD
+    config.assets.enabled = false
+
     config.assets.initialize_on_precompile = false
-=======
-config.assets.initialize_on_precompile = false
->>>>>>> c8df4b4493701480e314e58f76504271655371a7
+
+
+
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
   end

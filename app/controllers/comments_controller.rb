@@ -11,13 +11,10 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create!(params[:comment])
-
-
+    flash[:notice] = "Thanks for commenting!"
     respond_to do |format|
-      flash[:notice] = "Thanks for commenting!"
       format.html { redirect_to comments_path }
       format.js
-      #format.rss
     end
   end
 

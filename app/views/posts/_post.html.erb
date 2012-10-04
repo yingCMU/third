@@ -8,15 +8,14 @@
 
   <span class="label label-inverse">        Posted      </span>
     <%= time_ago_in_words(post.created_at) %> ago.
-  <span class="label label-info"> follower Number : </span>
-  <%=post.followers.count%>
 
-  <button class="btn btn-mini" type="button">
-  <td><%= link_to 'Show Details', post %></td>     </button>
-  <a href="<%= followers_post_path(post) %>">
-    <strong id="followers" class="stat">
+
+
+    <a href="<%= followers_post_path(post) %>">
+      <strong id="followers" class="stat"> </strong>   followers
+    </a>
+
       <%= post.followers.count %>
-    </strong>
-    followers
-  </a>
+
+
 </li>

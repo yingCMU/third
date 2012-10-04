@@ -15,9 +15,9 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(params[:post])
 
     if @post.save
-      flash[:success] = "post created!"
+     # flash[:success] = "post created!"
       respond_to do |format|
-        format.html { redirect_to root_url, notice: 'Post was successfully created.'   }
+        format.html { redirect_to root_url   }
         format.xml { redirect_to root_url    }
        # format.js  #added
         # redirect_to @user, notice: 'User was successfully created.'
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     flash[:success] = "post deleted successfully!"
-   format.js #added
+  # format.js #added
    # render 'posts/index'
    # redirect_to root_url
     render 'home_pages/home'
